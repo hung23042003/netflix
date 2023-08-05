@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+@layer base {
+  body {
+    @apply bg-[#100F10] text-white font-body;
+  }
+}
+
+@layer components {
+  .page-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .movie-list .swiper-slide {
+    width: 200px !important;
+    height: auto;
+  }
+  .banner .swiper {
+    height: 100%;
+  }
+  .header-fixed {
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.25s;
+  }
+}
