@@ -14,7 +14,7 @@ const MovieDetailPage = lazy(() => import("./pages/MovieDetailPage"));
 const App = () => {
   // const [logged, setLogged] = useState(false);
   const { logged } = useContext(MovieContext);
-  console.log(logged);
+  // console.log(logged);
   return (
     <Suspense>
       <>

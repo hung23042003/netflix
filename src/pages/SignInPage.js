@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Image from "../components/Image";
 import OverLay from "../components/banner/OverLay";
 import LogoNexFlix from "../components/icon/LogoNexFlix";
@@ -26,6 +26,7 @@ const schema = yup.object({
 
 const SignInPage = () => {
   const { setLogged } = useContext(MovieContext);
+  const [social, setSocial] = useState(false);
   const {
     control,
     handleSubmit,
@@ -33,13 +34,13 @@ const SignInPage = () => {
   } = useForm({ resolver: yupResolver(schema) });
   const handleSignIn = async (values) => {
     if (!isValid) return;
-    console.log(values);
+    // console.log(values);
     // await createUserWithEmailAndPassword(auth, values.email, values.password);
     const userRef = collection(db, "user");
-    await addDoc(userRef, {
-      email: values.email,
-      password: values.password,
-    });
+    // await addDoc(userRef, {
+    //   email: values.email,
+    //   password: values.password,
+    // });
     setLogged(true);
     toast.success("Registor succesfully");
   };
@@ -65,8 +66,13 @@ const SignInPage = () => {
       >
         <div className="flex justify-between ">
           <h2 className="text-3xl font-semibold mb-7">Đăng nhập </h2>
-          <img
+          {/* <img
             src="/facebook.png"
+            alt="img"
+            className="object-contain relative -top-[18px] cursor-pointer"
+          /> */}
+          <img
+            src={`${social ? "/google.png" : "/facebook.png"}`}
             alt="img"
             className="object-contain relative -top-[18px] cursor-pointer"
           />
@@ -77,7 +83,6 @@ const SignInPage = () => {
           control={control}
           className="mb-5 bg-[#333] focus:bg-[#454545] rounded-md"
         ></Input>
-
         <Input
           type="password"
           name="password"
@@ -109,14 +114,21 @@ const SignInPage = () => {
         </div>
         <h2 className="text-center text-xl mt-5">- Or Sign in with -</h2>
         <div className="flex items-center justify-center gap-3 mt-5">
-          <button className="text-black bg-white border h-[40px] w-[100px] text-sm rounded-sm ">
+          <div className="text-black bg-white border h-[40px] w-[100px] text-sm rounded-sm flex items-center justify-center cursor-pointer ">
             <i className="fa-brands fa-apple mr-1"></i>
             Apple ID
-          </button>
-          <button className="text-black bg-white border h-[40px] w-[100px] text-sm rounded-sm ">
-            <i className="fa-brands fa-google mr-1"></i>
-            Google
-          </button>
+          </div>
+          <div
+            className="text-black bg-white border h-[40px] w-[100px] text-sm rounded-sm flex items-center justify-center cursor-pointer select-none "
+            onClick={() => setSocial((prev) => !prev)}
+          >
+            {!social ? (
+              <i className="fa-brands fa-google mr-1"></i>
+            ) : (
+              <i className="fa-brands fa-facebook mr-1"></i>
+            )}
+            <span>{!social ? "Google" : "Facebook"}</span>
+          </div>
         </div>
         <p className="text-xs mt-7">
           Trang này được Google reCAPTCHA bảo vệ để đảm bảo bạn không phải là

@@ -5,7 +5,7 @@ const LogoNexFlix = ({ className }) => {
   const navigate = useNavigate();
   return (
     <svg
-      // onClick={() => navigate("/")}
+      onClick={() => navigate("/")}
       viewBox="0 0 111 30"
       data-uia="netflix-logo"
       className={`fill-red-600 w-[100px] h-[45px] cursor-pointer ${className}`}

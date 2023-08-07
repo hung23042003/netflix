@@ -17,7 +17,7 @@ const MovieItem = ({ item }) => {
         <div className=" absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0  hover:opacity-100 ">
           <span
             className="p-2 bg-primary rounded-full"
-            onClick={() => navigate(`/movies/${id}"`)}
+            onClick={() => navigate(`/movies/${id}`)}
           >
             <PlayIcon className={"text-white h-5 w-5"}></PlayIcon>
           </span>

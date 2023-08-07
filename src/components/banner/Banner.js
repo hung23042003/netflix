@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { fetcher, tmdbApi } from "../../config";
 import useSWR from "swr";
 import { Swiper, SwiperSlide } from "swiper/react";

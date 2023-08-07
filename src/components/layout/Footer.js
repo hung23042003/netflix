@@ -1,6 +1,4 @@
 import React from "react";
-import PlayIcon from "../icon/PlayIcon";
-import Logo from "../Logo";
 import OverLay from "../banner/OverLay";
 import LogoNexFlix from "../icon/LogoNexFlix";
 
@@ -15,7 +13,6 @@ const Footer = () => {
       />
       <div className="content flex flex-col absolute">
         <LogoNexFlix className={"mx-auto mb-10"}></LogoNexFlix>
-        {/* <Logo className={"mx-auto mb-10"}></Logo> */}
         <div className="flex gap-x-28">
           <div className="flex flex-col gap-y-3">
             <span className="hover:text-primary cursor-pointer">Home</span>

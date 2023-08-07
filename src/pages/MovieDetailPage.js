@@ -2,10 +2,10 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { fetcher, tmdbApi } from "../config";
 import useSWR from "swr";
-import { Swiper, SwiperSlide } from "swiper/react";
-import MovieItem from "../components/movie/MovieItem";
-import Video from "../components/Video";
 import Comment from "../components/Comment";
+import MovieCredit from "../components/movie/MovieCredit";
+import MovieVideo from "../components/movie/MovieVideo";
+import MovieSimilar from "../components/movie/MovieSimilar";
 
 const MovieDetailPage = () => {
   const { movieId } = useParams();
@@ -56,75 +56,5 @@ const MovieDetailPage = () => {
     </>
   );
 };
-
-function MovieCredit() {
-  const { movieId } = useParams();
-  const { data } = useSWR(tmdbApi.getMovieMeta(movieId, "credits"), fetcher);
-  if (!data) return null;
-  const { cast } = data;
-  if (!cast || cast.length <= 0) return null;
-  return (
-    <div className="page-container">
-      <h2 className="text-3xl font-semibold ">Casts</h2>
-      <div className="grid grid-cols-4 gap-5">
-        {cast.slice(0, 4).map((item) => (
-          <div key={item.id}>
-            <img
-              src={tmdbApi.imagesOriginal(item.profile_path)}
-              className="w-full h-[180px] object-cover rounded-lg"
-              alt=""
-            />
-            <h2 className="font-normal text-sm mt-2 ">{item.original_name}</h2>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function MovieVideo() {
-  const { movieId } = useParams();
-  const { data } = useSWR(tmdbApi.getMovieMeta(movieId, "videos"), fetcher);
-  if (!data) return null;
-  const { results } = data;
-  if (!results || results.length <= 0) return null;
-  return (
-    <div className="px-[8%] flex flex-col gap-10 mb-10">
-      <h2 className="text-3xl font-semibold">Trailer</h2>
-      {results.slice(0, 4).map((item) => (
-        <div
-          key={item.id}
-          className="w-full h-full aspect-video overflow-hidden"
-        >
-          <h2 className="text-lg font-medium py-4">{item.name}</h2>
-          <Video keyYoutobe={item.key}></Video>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function MovieSimilar() {
-  const { movieId } = useParams();
-  const { data } = useSWR(tmdbApi.getMovieMeta(movieId, "similar"), fetcher);
-  if (!data) return null;
-  console.log(data);
-  const { results } = data;
-  if (!results || results.length <= 0) return null;
-  return (
-    <div className="px-[8%] mb-10">
-      <h2 className="text-3xl font-semibold mb-10">Similar</h2>
-      <div className="movie-list ">
-        <Swiper grabCursor={true} slidesPerView={"auto"} spaceBetween={40}>
-          {results.map((item) => (
-            <SwiperSlide key={item.id}>
-              <MovieItem item={item}></MovieItem>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </div>
-  );
-}
 
 export default MovieDetailPage;

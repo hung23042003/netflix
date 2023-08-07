@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import Logo from "../Logo";
 import Navbar from "../Navbar";
 import useScroolBar from "../../hooks/useScroolBar";
 import LogoNexFlix from "../icon/LogoNexFlix";
