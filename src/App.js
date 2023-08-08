@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useContext, useState } from "react";
+import React, { Suspense, lazy, useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import "swiper/scss";
 import Main from "./components/layout/Main";
@@ -7,14 +7,9 @@ import { MovieContext } from "./context/MovieContext";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const MoviePage = lazy(() => import("./pages/MoviePage"));
 const MovieDetailPage = lazy(() => import("./pages/MovieDetailPage"));
-// import HomePage from "./pages/HomePage";
-// import MoviePage from "./pages/MoviePage";
-// import MovieDetailPage from "./pages/MovieDetailPage";
 
 const App = () => {
-  // const [logged, setLogged] = useState(false);
   const { logged } = useContext(MovieContext);
-  // console.log(logged);
   return (
     <Suspense>
       <>

@@ -37,10 +37,10 @@ const SignInPage = () => {
     // console.log(values);
     // await createUserWithEmailAndPassword(auth, values.email, values.password);
     const userRef = collection(db, "user");
-    // await addDoc(userRef, {
-    //   email: values.email,
-    //   password: values.password,
-    // });
+    await addDoc(userRef, {
+      email: values.email,
+      password: values.password,
+    });
     setLogged(true);
     toast.success("Registor succesfully");
   };
@@ -66,11 +66,6 @@ const SignInPage = () => {
       >
         <div className="flex justify-between ">
           <h2 className="text-3xl font-semibold mb-7">Đăng nhập </h2>
-          {/* <img
-            src="/facebook.png"
-            alt="img"
-            className="object-contain relative -top-[18px] cursor-pointer"
-          /> */}
           <img
             src={`${social ? "/google.png" : "/facebook.png"}`}
             alt="img"
