@@ -28,7 +28,7 @@ const BannerItem = ({ item }) => {
             Watch now
           </Button>
         </div>
-        <div className="flex-1 flex-grow basis-0">
+        <div className="hidden sm:block flex-1 flex-grow basis-0">
           <img
             src={tmdbApi.images500(poster_path)}
             alt="img"

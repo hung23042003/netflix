@@ -12,7 +12,7 @@ const MovieItem = ({ item }) => {
       <div className="relative">
         <Image
           url={tmdbApi.images500(backdrop_path || poster_path)}
-          className={"rounded-2xl h-[300px]"}
+          className={"rounded-2xl h-[150px] sm:h-[300px]"}
         ></Image>
         <div className=" absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0  hover:opacity-100 ">
           <span

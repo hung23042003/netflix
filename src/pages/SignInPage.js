@@ -61,7 +61,7 @@ const SignInPage = () => {
         <LogoNexFlix className="w-[170px] "></LogoNexFlix>
       </h2>
       <form
-        className="w-[450px] h-[600px] bg-black bg-opacity-70 p-[60px] absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 rounded-xl"
+        className=" w-[375px] h-[480px]  sm:w-[450px] sm:h-[600px] bg-black bg-opacity-70 p-[60px] absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 rounded-xl"
         onSubmit={handleSubmit(handleSignIn)}
       >
         <div className="flex justify-between ">
