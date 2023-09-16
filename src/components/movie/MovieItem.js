@@ -14,11 +14,11 @@ const MovieItem = ({ item }) => {
           url={tmdbApi.images500(backdrop_path || poster_path)}
           className={"rounded-2xl h-[150px] sm:h-[300px]"}
         ></Image>
-        <div className=" absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0  hover:opacity-100 ">
-          <span
-            className="p-2 bg-primary rounded-full"
-            onClick={() => navigate(`/movies/${id}`)}
-          >
+        <div
+          className=" absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0  hover:opacity-100 "
+          onClick={() => navigate(`/movies/${id}`)}
+        >
+          <span className="p-2 bg-primary rounded-full">
             <PlayIcon className={"text-white h-5 w-5"}></PlayIcon>
           </span>
         </div>
